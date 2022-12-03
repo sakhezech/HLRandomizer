@@ -1,0 +1,328 @@
+[
+    {
+        "name": "rm_C_Central.lvl",
+        "object_list": [
+            {
+                "type": "Televator",
+                "x": 735,
+                "y": 750,
+                "attrs": {
+                    "rm": "rm_A_PreDownward",
+                    "dr": 2479,
+                    "ed": 0,
+                    "m": 0,
+                    "v": 0,
+                    "a": 0,
+                    "trn": 4
+                },
+                "middle_string": "1,1079,caseScript,3,1,-999999,0",
+                "uid": 7699,
+                "layer": 0,
+                "class_name": "HLDObj"
+            }
+        ]
+    },
+    {
+        "name": "rm_A_PreDownward.lvl",
+        "object_list": [
+            {
+                "type": "door",
+                "x": 320,
+                "y": 912,
+                "attrs": {
+                    "rm": "rm_A_Downward",
+                    "dr": 1227,
+                    "ed": 90,
+                    "wo": 1
+                },
+                "middle_string": "1,7082,caseScript,3,1,-999999,0",
+                "uid": 2555,
+                "layer": 0,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "Televator",
+                "x": 305,
+                "y": 175,
+                "attrs": {
+                    "rm": "rm_C_Central",
+                    "dr": 7699,
+                    "ed": 1,
+                    "m": 0,
+                    "v": 1,
+                    "a": 0,
+                    "trn": 4
+                },
+                "middle_string": "-999999",
+                "uid": 2479,
+                "layer": 0,
+                "class_name": "HLDObj"
+            }
+        ]
+    },
+    {
+        "name": "rm_A_Downward.lvl",
+        "object_list": [
+            {
+                "type": "door",
+                "x": 448,
+                "y": 1656,
+                "attrs": {
+                    "rm": "rm_A_EmberRoom",
+                    "dr": 4984,
+                    "ed": 270,
+                    "wo": 1
+                },
+                "middle_string": "1,7082,caseScript,3,1,-999999,0",
+                "uid": 2555,
+                "layer": 0,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "door",
+                "x": 400,
+                "y": 24,
+                "attrs": {
+                    "rm": "rm_A_PreDownward",
+                    "dr": 2555,
+                    "ed": 270,
+                    "wo": 1
+                },
+                "middle_string": "1,1405,caseScript,3,1,-999999,0",
+                "uid": 1227,
+                "layer": 0,
+                "class_name": "HLDObj"
+            }
+        ]
+    },
+    {
+        "name": "rm_A_EmberRoom.lvl",
+        "object_list": [
+            {
+                "type": "door",
+                "x": 344,
+                "y": 1576,
+                "attrs": {
+                    "rm": "rm_A_Downward",
+                    "dr": 2555,
+                    "ed": 90,
+                    "wo": 1
+                },
+                "middle_string": "1,1314,caseScript,3,1,-999999,0",
+                "uid": 4984,
+                "layer": 0,
+                "class_name": "HLDObj"
+            }
+        ]
+    },
+    {
+        "name": "rm_PAX_Staging.lvl",
+        "object_list": [
+            {
+                "type": "Televator",
+                "x": 288,
+                "y": 576,
+                "attrs": {
+                    "rm": "rm_PAX_arena2",
+                    "dr": 6223,
+                    "ed": 0,
+                    "m": 0,
+                    "v": 1,
+                    "a": 0,
+                    "trn": 4
+                },
+                "middle_string": "-999999",
+                "uid": 6377,
+                "layer": 0,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "Televator",
+                "x": 336,
+                "y": 576,
+                "attrs": {
+                    "rm": "rm_PAX_arenaW",
+                    "dr": 1990,
+                    "ed": 0,
+                    "m": 0,
+                    "v": 1,
+                    "a": 0,
+                    "trn": 4
+                },
+                "middle_string": "-999999",
+                "uid": 7185,
+                "layer": 0,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "Televator",
+                "x": 384,
+                "y": 576,
+                "attrs": {
+                    "rm": "rm_PAX_arenaE",
+                    "dr": 5147,
+                    "ed": 0,
+                    "m": 0,
+                    "v": 1,
+                    "a": 0,
+                    "trn": 4
+                },
+                "middle_string": "-999999",
+                "uid": 7671,
+                "layer": 0,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "Televator",
+                "x": 240,
+                "y": 576,
+                "attrs": {
+                    "rm": "rm_PAX_arena1",
+                    "dr": 7582,
+                    "ed": 0,
+                    "m": 0,
+                    "v": 1,
+                    "a": 0,
+                    "trn": 4
+                },
+                "middle_string": "-999999",
+                "uid": 7379,
+                "layer": 0,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "Televator",
+                "x": 720,
+                "y": 608,
+                "attrs": {
+                    "rm": "rm_PAX_arenaAll",
+                    "dr": 4461,
+                    "ed": 0,
+                    "m": 0,
+                    "v": 1,
+                    "a": 0,
+                    "trn": 4
+                },
+                "middle_string": "-999999",
+                "uid": 260,
+                "layer": 0,
+                "class_name": "HLDObj"
+            }
+        ]
+    },
+    {
+        "name": "rm_PAX_arena2.lvl",
+        "object_list": [
+            {
+                "type": "Televator",
+                "x": 288,
+                "y": 368,
+                "attrs": {
+                    "rm": "<undefined>",
+                    "dr": -999999,
+                    "ed": 0,
+                    "m": 0,
+                    "v": 0,
+                    "a": 0,
+                    "trn": 4
+                },
+                "middle_string": "-999999,caseScript,3,1,-999999,0",
+                "uid": 6223,
+                "layer": 6,
+                "class_name": "HLDObj"
+            }
+        ]
+    },
+    {
+        "name": "rm_PAX_arenaW.lvl",
+        "object_list": [
+            {
+                "type": "Televator",
+                "x": 312,
+                "y": 232,
+                "attrs": {
+                    "rm": "<undefined>",
+                    "dr": -999999,
+                    "ed": 0,
+                    "m": 0,
+                    "v": 0,
+                    "a": 0,
+                    "trn": 4
+                },
+                "middle_string": "-999999,caseScript,3,1,-999999,0",
+                "uid": 1990,
+                "layer": 0,
+                "class_name": "HLDObj"
+            }
+        ]
+    },
+    {
+        "name": "rm_PAX_arenaE.lvl",
+        "object_list": [
+            {
+                "type": "Televator",
+                "x": 272,
+                "y": 192,
+                "attrs": {
+                    "rm": "<undefined>",
+                    "dr": -999999,
+                    "ed": 0,
+                    "m": 0,
+                    "v": 0,
+                    "a": 0,
+                    "trn": 4
+                },
+                "middle_string": "-999999,caseScript,3,1,-999999,0",
+                "uid": 5147,
+                "layer": 0,
+                "class_name": "HLDObj"
+            }
+        ]
+    },
+    {
+        "name": "rm_PAX_arena1.lvl",
+        "object_list": [
+            {
+                "type": "Televator",
+                "x": 304,
+                "y": 208,
+                "attrs": {
+                    "rm": "<undefined>",
+                    "dr": -999999,
+                    "ed": 0,
+                    "m": 0,
+                    "v": 0,
+                    "a": 0,
+                    "trn": 4
+                },
+                "middle_string": "-999999,caseScript,3,1,-999999,0",
+                "uid": 7582,
+                "layer": 1,
+                "class_name": "HLDObj"
+            }
+        ]
+    },
+    {
+        "name": "rm_PAX_arenaAll.lvl",
+        "object_list": [
+            {
+                "type": "Televator",
+                "x": 304,
+                "y": 256,
+                "attrs": {
+                    "rm": "<undefined>",
+                    "dr": -999999,
+                    "ed": 0,
+                    "m": 0,
+                    "v": 0,
+                    "a": 0,
+                    "trn": 4
+                },
+                "middle_string": "-999999,caseScript,3,1,-999999,0",
+                "uid": 4461,
+                "layer": 0,
+                "class_name": "HLDObj"
+            }
+        ]
+    }
+]
