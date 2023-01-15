@@ -215,6 +215,7 @@ def get_json_from_manual12(path: str, out: str):
 
 
 def generate_all_jsons():
+    os.makedirs("jsons", exist_ok=True)
     get_json_from_graph(PATH_TO_GRAPH, os.path.join(JSON_DIR, "out_graph.json"))
     get_json_from_door(PATH_TO_DOOR, os.path.join(JSON_DIR, "out_door.json"))
     get_json_from_connect(PATH_TO_CONNECT, os.path.join(JSON_DIR, "out_connect.json"))
