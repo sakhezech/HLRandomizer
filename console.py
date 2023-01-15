@@ -1,7 +1,7 @@
 from cmd import Cmd
 from time import time
 from hldlib import HLDBasics, HLDLevel
-from randomizer import main, OUTPUT_PATH, BACKUP_FOLDER_NAME, ITEMLESS_FOLDER_NAME, DOORLESS_FOLDER_NAME
+from randomizer import main, OUTPUT_PATH, BACKUP_FOLDER_NAME, ITEMLESS_FOLDER_NAME, DOORLESS_FOLDER_NAME, Inventory
 import shutil
 import os
 import re
@@ -112,17 +112,23 @@ class ManagerCmd(Cmd):
         output_folder_name = re.sub(r"[^\w_-]", "", input("Output folder name: ")) if output else ""
 
         start_time = time()
-
-        try:
-            main(
-                random_doors=random_doors,
-                random_enemies=random_enemies,
-                output=output,
-                output_folder_name=output_folder_name if output_folder_name else "out",
-                random_seed=random_seed if random_seed else None
-            )
-        except IndexError as e:
-            print(f"We've encountered an '{e}' error. Try again or try another seed if seed used.")
+        while True:
+            try:
+                main(
+                    random_doors=random_doors,
+                    random_enemies=random_enemies,
+                    output=output,
+                    output_folder_name=output_folder_name if output_folder_name else "out",
+                    random_seed=random_seed if random_seed else None
+                )
+                break
+            except IndexError as e:
+                if random_doors and not random_seed:
+                    print("Retrying!")
+                    Inventory.reset()
+                else:
+                    print(f"We've encountered an '{e}' error. Try again or try another seed if seed used.")
+                    break
 
         end_time = time()
         print(f"Done in {end_time-start_time:.2f} s")

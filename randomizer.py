@@ -119,6 +119,12 @@ class Inventory:
     @classmethod
     def reset_reached_checks(cls):
         cls.reached_checks: list[FakeObject] = list()
+    
+    @classmethod
+    def reset(cls):
+        cls.reset_reached_checks()
+        cls.reset_current()
+        cls.reset_temporary()
 
     @classmethod
     def pick_up_item(cls, obj: FakeObject):
@@ -422,7 +428,7 @@ class FakeObject:
                 y=obj.y,
                 attrs={
                     "rm": "<undefined>",
-                    "dr": "<undefined>",
+                    "dr": 1,
                     "ed": 0,
                 },
                 uid=obj.extra_info["self_id"]
@@ -615,6 +621,12 @@ def get_randomized_doors(levels: list[FakeLevel]):
 
 
 def prepare_and_merge_randomized_doors(graph_levels: LevelHolder, door_levels: list[FakeLevel]):
+    def _min_requirements(req1: dict, req2: dict) -> dict:
+        to_return = {}
+        for key in req1.keys():
+            to_return[key] = max(req1[key], req2[key])
+        return to_return
+
     connection_list = []
     for level in door_levels:
         for door in level.fake_object_list:
@@ -627,7 +639,7 @@ def prepare_and_merge_randomized_doors(graph_levels: LevelHolder, door_levels: l
                 {
                     "from": door.extra_info["parent_room"],
                     "to": door.extra_info["connected_to"].extra_info["parent_room"],
-                    "requirements": door.requirements
+                    "requirements": _min_requirements(door.requirements, door.extra_info["connected_to"].requirements)#door.requirements
                 }
             )
         merge_into = graph_levels.find_first_by_partial_name(level.name.split("/")[0])
@@ -764,9 +776,7 @@ def main(random_doors: bool = False, random_enemies: bool = False, output: bool 
     if random_enemies:
         randomize_enemies(real_levels)
 
-    Inventory.reset_reached_checks()
-    Inventory.reset_current()
-    Inventory.reset_temporary()
+    Inventory.reset()
 
     if output:
         real_levels.dump_all(os.path.join(OUTPUT_PATH, output_folder_name))

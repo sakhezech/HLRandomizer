@@ -1,28 +1,5 @@
 [
     {
-        "name": "rm_C_Central.lvl",
-        "object_list": [
-            {
-                "type": "Televator",
-                "x": 735,
-                "y": 750,
-                "attrs": {
-                    "rm": "rm_A_PreDownward",
-                    "dr": 2479,
-                    "ed": 0,
-                    "m": 0,
-                    "v": 0,
-                    "a": 0,
-                    "trn": 4
-                },
-                "middle_string": "1,1079,caseScript,3,1,-999999,0",
-                "uid": 7699,
-                "layer": 0,
-                "class_name": "HLDObj"
-            }
-        ]
-    },
-    {
         "name": "rm_A_PreDownward.lvl",
         "object_list": [
             {
@@ -321,6 +298,560 @@
                 "middle_string": "-999999,caseScript,3,1,-999999,0",
                 "uid": 4461,
                 "layer": 0,
+                "class_name": "HLDObj"
+            }
+        ]
+    },
+    {
+        "name": "rm_IN_01_brokenshallows.lvl",
+        "object_list": [
+            {
+                "type": "Teleporter",
+                "x": 241,
+                "y": 351,
+                "attrs": {
+                    "r": "rm_C_Central",
+                    "d": 9009,
+                    "t": 1,
+                    "i": 0
+                },
+                "middle_string": "-999999",
+                "uid": 9008,
+                "layer": 0,
+                "class_name": "HLDObj"
+            }
+        ]
+    },
+    {
+        "name": "rm_C_Central.lvl",
+        "object_list": [
+            {
+                "type": "Televator",
+                "x": 735,
+                "y": 750,
+                "attrs": {
+                    "rm": "rm_A_PreDownward",
+                    "dr": 2479,
+                    "ed": 0,
+                    "m": 0,
+                    "v": 0,
+                    "a": 0,
+                    "trn": 4
+                },
+                "middle_string": "1,1079,caseScript,3,1,-999999,0",
+                "uid": 7699,
+                "layer": 0,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "Teleporter",
+                "x": 211,
+                "y": 336,
+                "attrs": {
+                    "r": "rm_IN_01_brokenshallows",
+                    "d": 9008,
+                    "t": 1,
+                    "i": 0
+                },
+                "middle_string": "-999999",
+                "uid": 9009,
+                "layer": 0,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "Spawner",
+                "x": 360,
+                "y": 320,
+                "attrs": {
+                    "-1": "Terminal",
+                    "-2": -999999,
+                    "-4": 1,
+                    "-5": 0,
+                    "-6": -1,
+                    "-7": 0,
+                    "-8": 0,
+                    "t": 1.5,
+                    "a": -999999,
+                    "1": 0
+                },
+                "middle_string": "-999999",
+                "uid": 9033,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "EmptyObject",
+                "x": 856,
+                "y": 120,
+                "attrs": {
+                    "mn": "Block Shortcut",
+                    "a": -1
+                },
+                "middle_string": "1,9033,caseScript,3,1,-999999,0",
+                "uid": 9032,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 307,
+                "y": 432,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9010,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 291,
+                "y": 432,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9011,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 275,
+                "y": 432,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9012,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 259,
+                "y": 432,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9013,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 243,
+                "y": 432,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9014,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 227,
+                "y": 432,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9015,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 211,
+                "y": 432,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9016,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 195,
+                "y": 432,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9017,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 307,
+                "y": 336,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9018,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 291,
+                "y": 336,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9019,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 275,
+                "y": 336,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9020,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 259,
+                "y": 336,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9021,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 243,
+                "y": 336,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9023,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 227,
+                "y": 336,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9024,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 211,
+                "y": 336,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9025,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 195,
+                "y": 336,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9026,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 307,
+                "y": 416,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9027,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 307,
+                "y": 400,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9028,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 307,
+                "y": 384,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9029,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 307,
+                "y": 368,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9030,
+                "layer": 1,
+                "class_name": "HLDObj"
+            },
+            {
+                "type": "RecessingScenery",
+                "x": 307,
+                "y": 352,
+                "attrs": {
+                    "0": "spr_WLabBlock16",
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "k": 0,
+                    "p": -4,
+                    "fp": 0,
+                    "4": 0,
+                    "5": 0,
+                    "f": 0,
+                    "l": 0
+                },
+                "middle_string": "1,9032,caseScript,3,0,-999999,0",
+                "uid": 9031,
+                "layer": 1,
                 "class_name": "HLDObj"
             }
         ]
