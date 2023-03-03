@@ -5,3 +5,5 @@ out/
 level_name_extractor.py
 hlddir.txt
 hlr-release*
+dist/
+build/
