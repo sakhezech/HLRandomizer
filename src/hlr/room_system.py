@@ -1,0 +1,140 @@
+from __future__ import annotations
+
+from collections.abc import Iterator, MutableMapping
+from typing import ClassVar
+
+from hldlib import CaseScriptType, HLDLevel
+from hldlib import HLDLevelNames as ln
+from hldlib import HLDObj, HLDType
+
+from hlr.requirements import Req
+
+
+class Room(MutableMapping):
+    _instaces: ClassVar[dict[ln, Room]] = {}
+
+    def __new__(cls, name: ln, *args, **kwargs):
+        if name in cls._instaces:
+            return cls._instaces[name]
+        instance = super().__new__(cls, *args, **kwargs)
+        cls._instaces[name] = instance
+        return instance
+
+    def __init__(self, name: ln) -> None:
+        self.name = name
+
+        if not hasattr(self, '_subrooms'):
+            self._subrooms: dict[str, Subroom] = {}
+
+    def __getitem__(self, __key: str) -> Subroom:
+        return self._subrooms.__getitem__(__key)
+
+    def __setitem__(self, __key: str, __value: Subroom) -> None:
+        if not hasattr(__value, 'parent'):
+            __value.parent = self
+        return self._subrooms.__setitem__(__key, __value)
+
+    def __delitem__(self, __key: str) -> None:
+        return self._subrooms.__delitem__(__key)
+
+    def __len__(self) -> int:
+        return self._subrooms.__len__()
+
+    def __iter__(self) -> Iterator[str]:
+        return self._subrooms.__iter__()
+
+    @classmethod
+    def _reset(cls) -> None:
+        cls._instaces = {}
+
+    @classmethod
+    def init(cls, levels) -> None:
+        raise NotImplementedError
+
+
+class Subroom:
+    def __init__(self, parent: Room | None = None) -> None:
+        self.items: list[Item] = []
+        self.doors: list[Door] = []
+        self.ports: list[Port] = []
+        if parent:
+            self.parent = parent
+
+    @property
+    def conns(self):
+        return self.doors + self.ports
+
+    def add_item(self, id: int, x_off: int = 0, y_off: int = 0):
+        item = Item(id, x_off, y_off, self)
+        self.items.append(item)
+
+    def add_door(self, to: str, id: int, req: Req = Req.ZERO):
+        same_doors = [d for d in self.doors if d.to == to and d.id == id]
+        if same_doors:
+            same_doors[0].reqs.append(req)
+            return
+        door = Door(to, id, req, self)
+        self.doors.append(door)
+
+    def add_port(self, to: str, req: Req = Req.ZERO):
+        same_ports = [p for p in self.ports if p.to == to]
+        if same_ports:
+            same_ports[0].reqs.append(req)
+            return
+        port = Port(to, req, self)
+        self.ports.append(port)
+
+
+class Item:
+    def __init__(
+        self, id: int, x_off: int, y_off: int, parent: Subroom
+    ) -> None:
+        self.id = id
+        self.x_off = x_off
+        self.y_off = y_off
+        self.parent = parent
+
+    def _grab_meta(self, robj: HLDObj, level: HLDLevel):
+        self._robj = robj
+        self._level = level
+
+        self.in_enemy = robj.dependencies.casescript == CaseScriptType.ENEMY
+
+
+class Door:
+    def __init__(self, to: str, id: int, req: Req, parent: Subroom) -> None:
+        self.to = to
+        self.id = id
+        self.reqs = [req]
+        self.parent = parent
+
+    def _grab_meta(self, robj: HLDObj, level: HLDLevel):
+        self._robj = robj
+        self._level = level
+
+        if robj.type in {HLDType.DOOR, HLDType.TELEVATOR}:
+            room_name = robj.attrs['rm']
+            other_id = robj.attrs['dr']
+        else:
+            room_name = robj.attrs['r']
+            other_id = robj.attrs['d']
+
+        room_name = str(room_name)
+        other_id = int(other_id)
+
+        room_enum = ln[room_name.removeprefix('rm_').upper()]
+        self.link_door = [
+            d for d in Room(room_enum)[self.to].doors if d.id == other_id
+        ][0]
+
+    @property
+    def link_sub(self):
+        return self.link_door.parent
+
+
+class Port:
+    def __init__(self, to: str, req: Req, parent: Subroom) -> None:
+        self.to = to
+        self.reqs = [req]
+        self.parent = parent
+        self.link_sub = parent.parent[to]
