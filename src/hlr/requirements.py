@@ -23,15 +23,14 @@ class Req:
     FULL: ClassVar[Req]
 
     def is_satisfied_by(self, other: Req) -> bool:
-
         return all(
             getattr(self, field.name) <= getattr(other, field.name)
             for field in fields(self.__class__)
         )
 
     @staticmethod
-    def any_satisfied_by(selves: list[Req], other: Req) -> bool:
-        return any(slf.is_satisfied_by(other) for slf in selves)
+    def any_satisfied_by(reqs: list[Req], other: Req) -> bool:
+        return any(req.is_satisfied_by(other) for req in reqs)
 
 
 Req.ZERO = Req()
