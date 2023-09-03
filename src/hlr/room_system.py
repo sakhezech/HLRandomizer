@@ -95,7 +95,7 @@ class Item:
         self.parent = parent
 
     def _grab_meta(self, robj: HLDObj, level: HLDLevel):
-        self._robj = robj
+        self._obj = robj
         self._level = level
 
         self.in_enemy = robj.dependencies.casescript == CaseScriptType.ENEMY
@@ -109,7 +109,7 @@ class Door:
         self.parent = parent
 
     def _grab_meta(self, robj: HLDObj, level: HLDLevel):
-        self._robj = robj
+        self._obj = robj
         self._level = level
 
         if robj.type in {HLDType.DOOR, HLDType.TELEVATOR}:
