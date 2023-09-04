@@ -43,25 +43,29 @@ class ItemType(Enum):
     N_MODULE = ItemTypeInfo(
         PLACEHOLDER,
         req_field_name='n_modules',
-        filter_func=lambda x: x._level.direction == HLDDirection.NORTH,
+        filter_func=lambda x: x._level.direction == HLDDirection.NORTH
+        and not x.in_enemy,
     )
 
     E_MODULE = ItemTypeInfo(
         PLACEHOLDER,
         req_field_name='e_modules',
-        filter_func=lambda x: x._level.direction == HLDDirection.EAST,
+        filter_func=lambda x: x._level.direction == HLDDirection.EAST
+        and not x.in_enemy,
     )
 
     W_MODULE = ItemTypeInfo(
         PLACEHOLDER,
         req_field_name='w_modules',
-        filter_func=lambda x: x._level.direction == HLDDirection.WEST,
+        filter_func=lambda x: x._level.direction == HLDDirection.WEST
+        and not x.in_enemy,
     )
 
     S_MODULE = ItemTypeInfo(
         PLACEHOLDER,
         req_field_name='s_modules',
-        filter_func=lambda x: x._level.direction == HLDDirection.SOUTH,
+        filter_func=lambda x: x._level.direction == HLDDirection.SOUTH
+        and not x.in_enemy,
     )
 
     TABLET = ItemTypeInfo(
@@ -121,25 +125,29 @@ class ItemType(Enum):
     N_PYLON = ItemTypeInfo(
         PLACEHOLDER,
         req_field_name='n_pylons',
-        filter_func=lambda x: x._level.direction == HLDDirection.NORTH,
+        filter_func=lambda x: x._level.direction == HLDDirection.NORTH
+        and not x.in_enemy,
     )
 
     E_PYLON = ItemTypeInfo(
         PLACEHOLDER,
         req_field_name='e_pylons',
-        filter_func=lambda x: x._level.direction == HLDDirection.EAST,
+        filter_func=lambda x: x._level.direction == HLDDirection.EAST
+        and not x.in_enemy,
     )
 
     W_PYLON = ItemTypeInfo(
         PLACEHOLDER,
         req_field_name='w_pylons',
-        filter_func=lambda x: x._level.direction == HLDDirection.WEST,
+        filter_func=lambda x: x._level.direction == HLDDirection.WEST
+        and not x.in_enemy,
     )
 
     S_PYLON = ItemTypeInfo(
         PLACEHOLDER,
         req_field_name='s_pylons',
-        filter_func=lambda x: x._level.direction == HLDDirection.SOUTH,
+        filter_func=lambda x: x._level.direction == HLDDirection.SOUTH
+        and not x.in_enemy,
     )
 
     DELETE = ItemTypeInfo(
