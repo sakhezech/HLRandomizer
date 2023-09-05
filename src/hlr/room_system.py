@@ -64,25 +64,28 @@ class Subroom:
     def conns(self):
         return self.doors + self.ports
 
-    def add_item(self, id: int, x_off: int = 0, y_off: int = 0):
+    def add_item(self, id: int, x_off: int = 0, y_off: int = 0) -> Item:
         item = Item(id, x_off, y_off, self)
         self.items.append(item)
+        return item
 
-    def add_door(self, to: str, id: int, req: Req = Req.ZERO):
+    def add_door(self, to: str, id: int, req: Req = Req.ZERO) -> Door:
         same_doors = [d for d in self.doors if d.to == to and d.id == id]
         if same_doors:
             same_doors[0].reqs.append(req)
-            return
+            return same_doors[0]
         door = Door(to, id, req, self)
         self.doors.append(door)
+        return door
 
     def add_port(self, to: str, req: Req = Req.ZERO):
         same_ports = [p for p in self.ports if p.to == to]
         if same_ports:
             same_ports[0].reqs.append(req)
-            return
+            return same_ports[0]
         port = Port(to, req, self)
         self.ports.append(port)
+        return port
 
 
 class Item:
