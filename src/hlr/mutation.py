@@ -14,7 +14,7 @@ class ItemTypeInfo(Generic[T]):
         self,
         mutation_func: Callable[[Item, T], None],
         req_field_name: str | None = None,
-        filter_func: Callable[[Item], bool] = lambda x: True,
+        filter_func: Callable[[Item], bool] = lambda _: True,
         variations: Iterable[T] = [],
     ) -> None:
         self.mutation_func = mutation_func
@@ -29,6 +29,10 @@ class ItemTypeInfo(Generic[T]):
                 self.req_field_name,
                 getattr(req, self.req_field_name) + num,
             )
+
+    @property
+    def is_important(self) -> bool:
+        return bool(self.req_field_name)
 
 
 def PLACEHOLDER(x: Item, y: Any) -> None:
@@ -151,5 +155,5 @@ class ItemType(Enum):
     )
 
     DELETE = ItemTypeInfo(
-        lambda x, t: x._level.objects.remove(x._obj),
+        lambda x, _: x._level.objects.remove(x._obj),
     )
