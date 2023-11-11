@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from collections.abc import Iterator, MutableMapping
-from typing import ClassVar
 
 from hldlib import CaseScriptType, HLDLevel
 from hldlib import HLDLevelNames as ln
