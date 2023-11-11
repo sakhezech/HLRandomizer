@@ -10,48 +10,6 @@ from hldlib import HLDObj, HLDType
 from hlr.requirements import Req
 
 
-class Room(MutableMapping):
-    _instaces: ClassVar[dict[ln, Room]] = {}
-
-    def __new__(cls, name: ln, *args, **kwargs):
-        if name in cls._instaces:
-            return cls._instaces[name]
-        instance = super().__new__(cls, *args, **kwargs)
-        cls._instaces[name] = instance
-        return instance
-
-    def __init__(self, name: ln) -> None:
-        self.name = name
-
-        if not hasattr(self, '_subrooms'):
-            self._subrooms: dict[str, Subroom] = {}
-
-    def __getitem__(self, __key: str) -> Subroom:
-        return self._subrooms.__getitem__(__key)
-
-    def __setitem__(self, __key: str, __value: Subroom) -> None:
-        if not hasattr(__value, 'parent'):
-            __value.parent = self
-        return self._subrooms.__setitem__(__key, __value)
-
-    def __delitem__(self, __key: str) -> None:
-        return self._subrooms.__delitem__(__key)
-
-    def __len__(self) -> int:
-        return self._subrooms.__len__()
-
-    def __iter__(self) -> Iterator[str]:
-        return self._subrooms.__iter__()
-
-    @classmethod
-    def _reset(cls) -> None:
-        cls._instaces = {}
-
-    @classmethod
-    def init(cls, levels) -> None:
-        raise NotImplementedError
-
-
 class Subroom:
     def __init__(self, parent: Room | None = None) -> None:
         self.items: list[Item] = []
@@ -86,6 +44,62 @@ class Subroom:
         port = Port(to, req, self)
         self.ports.append(port)
         return port
+
+
+class Room(MutableMapping[str, Subroom]):
+    def __init__(self, name: ln) -> None:
+        self.name = name
+
+        if not hasattr(self, '_subrooms'):
+            self._subrooms: dict[str, Subroom] = {}
+
+    def __getitem__(self, __key: str) -> Subroom:
+        return self._subrooms.__getitem__(__key)
+
+    def __setitem__(self, __key: str, __value: Subroom) -> None:
+        if not hasattr(__value, 'parent'):
+            __value.parent = self
+        return self._subrooms.__setitem__(__key, __value)
+
+    def __delitem__(self, __key: str) -> None:
+        return self._subrooms.__delitem__(__key)
+
+    def __len__(self) -> int:
+        return self._subrooms.__len__()
+
+    def __iter__(self) -> Iterator[str]:
+        return self._subrooms.__iter__()
+
+
+class RoomMaker:
+    def __init__(self) -> None:
+        self._instaces: dict[ln, Room] = {}
+
+    def get_room(self, name: ln):
+        if name in self._instaces:
+            return self._instaces[name]
+        instance = Room(name)
+        self._instaces[name] = instance
+        return instance
+
+    def __call__(self, name: ln):
+        return self.get_room(name)
+
+    def init(self, levels: dict[ln, HLDLevel]) -> None:
+        for level_name, level in levels.items():
+            id_obj_map = {obj.uid: obj for obj in level.objects}
+            room = self._instaces[level_name]
+
+            reals = [
+                real
+                for subroom in room.values()
+                for real in subroom.items + subroom.doors
+            ]
+
+            for real in reals:
+                if real.id in id_obj_map:
+                    robj = id_obj_map[real.id]
+                    real._grab_meta(robj, level)
 
 
 class Item:
