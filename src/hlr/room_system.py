@@ -22,16 +22,16 @@ class Subroom:
         return self.doors + self.ports
 
     def add_item(self, id: int, x_off: int = 0, y_off: int = 0) -> Item:
-        item = Item(id, x_off, y_off, self)
+        item = Item(id=id, x_off=x_off, y_off=y_off, parent=self)
         self.items.append(item)
         return item
 
-    def add_door(self, to: str, id: int, req: Req = Req.ZERO) -> Door:
+    def add_door(self, id: int, to: str, req: Req = Req.ZERO) -> Door:
         same_doors = [d for d in self.doors if d.to == to and d.id == id]
         if same_doors:
             same_doors[0].reqs.append(req)
             return same_doors[0]
-        door = Door(to, id, req, self)
+        door = Door(id=id, to=to, req=req, parent=self)
         self.doors.append(door)
         return door
 
@@ -40,7 +40,7 @@ class Subroom:
         if same_ports:
             same_ports[0].reqs.append(req)
             return same_ports[0]
-        port = Port(to, req, self)
+        port = Port(to=to, req=req, parent=self)
         self.ports.append(port)
         return port
 
@@ -118,9 +118,9 @@ class Item:
 
 
 class Door:
-    def __init__(self, to: str, id: int, req: Req, parent: Subroom) -> None:
-        self.to = to
+    def __init__(self, id: int, to: str, req: Req, parent: Subroom) -> None:
         self.id = id
+        self.to = to
         self.reqs = [req]
         self.parent = parent
 
