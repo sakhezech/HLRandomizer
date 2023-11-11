@@ -1,4 +1,3 @@
-from enum import Enum
 from typing import Any, Callable, Generic, Iterable, TypeVar
 
 from hldlib import HLDDirection, HLDType
@@ -9,7 +8,7 @@ from hlr.room_system import Item
 T = TypeVar('T')
 
 
-class ItemTypeInfo(Generic[T]):
+class ItemType(Generic[T]):
     def __init__(
         self,
         mutation_func: Callable[[Item, T], None],
@@ -43,80 +42,80 @@ def NOT_IN_ENEMY(x: Item) -> bool:
     return not x.in_enemy
 
 
-class ItemType(Enum):
-    N_MODULE = ItemTypeInfo(
+class ITs:
+    N_MODULE = ItemType(
         PLACEHOLDER,
         req_field_name='n_modules',
         filter_func=lambda x: x._level.direction == HLDDirection.NORTH
         and not x.in_enemy,
     )
 
-    E_MODULE = ItemTypeInfo(
+    E_MODULE = ItemType(
         PLACEHOLDER,
         req_field_name='e_modules',
         filter_func=lambda x: x._level.direction == HLDDirection.EAST
         and not x.in_enemy,
     )
 
-    W_MODULE = ItemTypeInfo(
+    W_MODULE = ItemType(
         PLACEHOLDER,
         req_field_name='w_modules',
         filter_func=lambda x: x._level.direction == HLDDirection.WEST
         and not x.in_enemy,
     )
 
-    S_MODULE = ItemTypeInfo(
+    S_MODULE = ItemType(
         PLACEHOLDER,
         req_field_name='s_modules',
         filter_func=lambda x: x._level.direction == HLDDirection.SOUTH
         and not x.in_enemy,
     )
 
-    TABLET = ItemTypeInfo(
+    TABLET = ItemType(
         PLACEHOLDER,
         filter_func=NOT_IN_ENEMY,
         variations=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
     )
 
-    GEARBIT = ItemTypeInfo(
+    GEARBIT = ItemType(
         PLACEHOLDER,
     )
 
     # TODO: WE SHOULD 12 -> 13 FOR COMPANION
     # BUT I DONT REMEMBER WHY EXACTLY
-    OUTFIT = ItemTypeInfo(
+    OUTFIT = ItemType(
         PLACEHOLDER,
         variations=[2, 3, 4, 5, 6, 7, 9, 11, 12],
     )
 
-    KEY = ItemTypeInfo(
+    KEY = ItemType(
         PLACEHOLDER,
         req_field_name='keys',
     )
 
-    LASER = ItemTypeInfo(
+    LASER = ItemType(
         PLACEHOLDER,
         variations=[21, 23],
     )
 
-    SHOTGUN = ItemTypeInfo(
+    SHOTGUN = ItemType(
         PLACEHOLDER,
         variations=[2, 41, 43],
     )
 
-    DASH = ItemTypeInfo(
+    DASH = ItemType(
         PLACEHOLDER,
         req_field_name='dash',
         filter_func=NOT_IN_ENEMY,
     )
 
-    SWORD = ItemTypeInfo(
+    SWORD = ItemType(
         PLACEHOLDER,
         req_field_name='sword',
         filter_func=NOT_IN_ENEMY,
     )
 
-    SHOP = ItemTypeInfo(
+    SHOP = ItemType(
         PLACEHOLDER,
         filter_func=NOT_IN_ENEMY,
         variations=[
@@ -126,34 +125,34 @@ class ItemType(Enum):
         ],
     )
 
-    N_PYLON = ItemTypeInfo(
+    N_PYLON = ItemType(
         PLACEHOLDER,
         req_field_name='n_pylons',
         filter_func=lambda x: x._level.direction == HLDDirection.NORTH
         and not x.in_enemy,
     )
 
-    E_PYLON = ItemTypeInfo(
+    E_PYLON = ItemType(
         PLACEHOLDER,
         req_field_name='e_pylons',
         filter_func=lambda x: x._level.direction == HLDDirection.EAST
         and not x.in_enemy,
     )
 
-    W_PYLON = ItemTypeInfo(
+    W_PYLON = ItemType(
         PLACEHOLDER,
         req_field_name='w_pylons',
         filter_func=lambda x: x._level.direction == HLDDirection.WEST
         and not x.in_enemy,
     )
 
-    S_PYLON = ItemTypeInfo(
+    S_PYLON = ItemType(
         PLACEHOLDER,
         req_field_name='s_pylons',
         filter_func=lambda x: x._level.direction == HLDDirection.SOUTH
         and not x.in_enemy,
     )
 
-    DELETE = ItemTypeInfo(
+    DELETE = ItemType(
         lambda x, _: x._level.objects.remove(x._obj),
     )
