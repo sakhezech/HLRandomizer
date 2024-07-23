@@ -1,0 +1,22 @@
+[project]
+name = 'hlr'
+readme = 'README.md'
+description = 'HLD randomizer'
+license = { file = "LICENSE" }
+# TODO: add hldlib as a dependency later
+dependencies = []
+version = 'v2.0.0'
+
+[project.urls]
+Homepage = 'https://github.com/sakhezech/HLRandomizer'
+
+[tool.ruff]
+line-length = 79
+[tool.ruff.format]
+quote-style = 'single'
+[tool.ruff.lint]
+extend-select = ['I', 'E501']
+
+[build-system]
+requires = ['hatchling']
+build-backend = 'hatchling.build'
